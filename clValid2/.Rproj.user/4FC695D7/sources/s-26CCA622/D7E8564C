@@ -1,0 +1,24 @@
+{
+    "id": "D7E8564C",
+    "path": "G:/Mi unidad/WHY/Github/clValid2/clValid2/scripts/is_kmeans_doing_well.R",
+    "project_path": "scripts/is_kmeans_doing_well.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1619685924492.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "174,3",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1619686273,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1619686273435,
+    "read_only": false,
+    "read_only_alternatives": []
+}
