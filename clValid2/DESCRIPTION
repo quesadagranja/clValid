@@ -2,9 +2,7 @@ Package: clValid2
 Version: 0.7
 Date: 2021-02-13
 Title: Validation of Clustering Results
-Author: Guy Brock <guy.brock@louisville.edu>, Vasyl Pihur <vpihur@gmail.com>, 
-	Susmita Datta <susmita.datta@louisville.edu>, and
-  	Somnath Datta <somnath.datta@louisville.edu>
+Author: Carlos Quesada <carlos.quesada@deusto.es>
 Maintainer: Vasyl Pihur <vpihur@gmail.com>
 Depends: R (>= 3.0), cluster
 Imports: methods, class

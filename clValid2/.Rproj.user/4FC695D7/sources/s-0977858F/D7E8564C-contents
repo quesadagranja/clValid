@@ -135,12 +135,19 @@ row.names(feats) <- feats_names
 seed_value <- 1981
 set.seed(seed_value)
 
-result.fanny <- cluster::fanny(
-  x = feats,
-  k = 24,
-  diss = F
-)
+# result.fanny <- cluster::fanny(
+#   x = feats,
+#   k = 24,
+#   diss = F
+# )
 
+result.fanny <- clValid2::clValid(
+  obj = feats,
+  nClust = 24,
+  clMethods = "fanny",
+  validation = valid,
+  maxitems = nrow(feats) + 1
+)
 
 # k1 <- kmeans(
 #   x = feats,

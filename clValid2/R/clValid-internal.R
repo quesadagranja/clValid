@@ -70,17 +70,23 @@ vClusters <- function(mat,clMethod,nClust,nclustMax, validation,
              # dimnames(initial) <- list(NULL,dimnames(mat)[[2]])
              # clusterObj[[ind]] <- kmeans(mat,initial,...)
 
-             clusterObj[[ind]] <- kmeans(
+             clusterObj[[ind]] <- stats::kmeans(
                x         = mat,
-               centers   = nClust,
+               centers   = nc,
                iter.max  = 200,
                nstart    = 50,
-               algorithm = "MacQueen"
+               algorithm = "MacQueen",
+               ...
              )
              cluster <- clusterObj[[ind]]$cluster
            },
            fanny = {
-             clusterObj[[ind]] <- fanny(Dist, nc, ...)
+             clusterObj[[ind]] <- cluster::fanny(
+               x = Dist,
+               k = nc,
+               memb.exp = 1.5,
+               ...
+             )
              cluster <- clusterObj[[ind]]$clustering
            },
            model = {
