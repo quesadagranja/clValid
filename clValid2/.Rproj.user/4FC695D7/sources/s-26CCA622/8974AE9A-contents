@@ -12,5 +12,4 @@ setwd("..")
 
 devtools::load_all()
 
-setwd("scripts")
 library(clValid2)

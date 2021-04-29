@@ -3,7 +3,7 @@
     "path": "G:/Mi unidad/WHY/Github/clValid2/clValid2/scripts/build-package.R",
     "project_path": "scripts/build-package.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "4187019724",
     "contents": "",
     "dirty": false,
     "created": 1619685409783.0,
@@ -14,11 +14,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1619686154,
+    "lastKnownWriteTime": 1619693025,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1619686154777,
+    "last_content_update": 1619693025708,
     "read_only": false,
     "read_only_alternatives": []
 }

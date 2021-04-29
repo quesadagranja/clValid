@@ -124,15 +124,23 @@ row_conditions <-
   feats$imputed_na_pct < imp_na_pct &
   feats$is_household %in% is_hhold
 
-row.names(feats) <- paste0(feats$data_set, "_", feats$file)
 feats <- feats[row_conditions,]
-# feats <- feats[1:50,]
+feats_names <- paste0(feats$data_set, "_", feats$file)
 feats <- subset(feats, select = ft_set)
 feats <- as.matrix(feats)
+row.names(feats) <- feats_names
+
 
 # Set random seed
 seed_value <- 1981
 set.seed(seed_value)
+
+result.fanny <- cluster::fanny(
+  x = feats,
+  k = 24,
+  diss = F
+)
+
 
 # k1 <- kmeans(
 #   x = feats,
@@ -141,22 +149,22 @@ set.seed(seed_value)
 #   nstart    = 50,
 #   algorithm = "MacQueen"
 # )
-
+#
 # kclusters_k1 <- sapply(
 #   1:24,
 #   function(x) sum(k1$cluster == x)
 # )
-
+#
 # k2 <- kmeans(
 #   x = feats,
 #   centers = 24
 # )
-
+#
 # kclusters_k2 <- sapply(
 #   1:24,
 #   function(x) sum(k2$cluster == x)
 # )
-
+#
 # clv1 <- clValid2::clValid(
 #   obj = feats,
 #   nClust = 24,
@@ -168,28 +176,28 @@ set.seed(seed_value)
 #   nstart    = 50,
 #   algorithm = "MacQueen"
 # )
-
+#
 # kclusters_clv1 <- sapply(
 #   1:24,
 #   function(x) sum(clv1@clusterObjs$kmeans$`24`$cluster == x)
 # )
-
-clv2 <- clValid2::clValid(
-  obj = feats,
-  nClust = 24,
-  clMethods = "kmeans",
-  validation = valid,
-  maxitems = nrow(feats) + 1
-)
-
-kclusters_clv2 <- sapply(
-  1:24,
-  function(x) sum(clv2@clusterObjs$kmeans$`24`$cluster == x)
-)
-
-df <- data.frame(
-  k1 = sort(kclusters_k1,decreasing = T),
-  k2 = sort(kclusters_k2,decreasing = T),
-  clv1 = sort(kclusters_clv1,decreasing = T),
-  clv2 = sort(kclusters_clv2,decreasing = T)
-)
+#
+# clv2 <- clValid2::clValid(
+#   obj = feats,
+#   nClust = 24,
+#   clMethods = "kmeans",
+#   validation = valid,
+#   maxitems = nrow(feats) + 1
+# )
+#
+# kclusters_clv2 <- sapply(
+#   1:24,
+#   function(x) sum(clv2@clusterObjs$kmeans$`24`$cluster == x)
+# )
+#
+# df <- data.frame(
+#   k1 = sort(kclusters_k1,decreasing = T),
+#   k2 = sort(kclusters_k2,decreasing = T),
+#   clv1 = sort(kclusters_clv1,decreasing = T),
+#   clv2 = sort(kclusters_clv2,decreasing = T)
+# )

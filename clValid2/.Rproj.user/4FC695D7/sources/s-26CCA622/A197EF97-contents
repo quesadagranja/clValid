@@ -53,18 +53,31 @@ vClusters <- function(mat,clMethod,nClust,nclustMax, validation,
            names(clusterObj) <- nClust })
 
   ind <- 1
-  browser()
+  set.seed(1981)
+
   for (nc in nClust) {
     switch(clMethod,
            kmeans = {
-             initial <- tapply(mat, list(rep(cutree(clusterObjInit,nc),ncol(mat)),col(mat)),
-                               function(x) mean(x, na.rm=TRUE))
-             if(length(dup <- which(duplicated(initial)))>0) {
-               for(dupi in dup)
-                 initial[dupi,] <- initial[dupi,] + jitter(initial[dupi,])
-             }
-             dimnames(initial) <- list(NULL,dimnames(mat)[[2]])
-             clusterObj[[ind]] <- kmeans(mat,initial,...)
+             # initial <- tapply(
+             #   mat,
+             #   list(rep(cutree(clusterObjInit,nc),ncol(mat)),col(mat)),
+             #   function(x) mean(x, na.rm=TRUE)
+             # )
+             # if(length(dup <- which(duplicated(initial)))>0) {
+             #   for(dupi in dup)
+             #     initial[dupi,] <- initial[dupi,] + jitter(initial[dupi,])
+             # }
+             # dimnames(initial) <- list(NULL,dimnames(mat)[[2]])
+             # clusterObj[[ind]] <- kmeans(mat,initial,...)
+
+             clusterObj[[ind]] <- stats::kmeans(
+               x         = mat,
+               centers   = nClust,
+               iter.max  = 200,
+               nstart    = 50,
+               algorithm = "MacQueen",
+               ...
+             )
              cluster <- clusterObj[[ind]]$cluster
            },
            fanny = {
