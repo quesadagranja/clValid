@@ -84,16 +84,21 @@ vClusters <- function(mat,clMethod,nClust,nclustMax, validation,
              clusterObj[[ind]] <- cluster::fanny(
                x = Dist,
                k = nc,
-               memb.exp = 1.5,
+               # If memb.exp == 1.5, the method suggests to reduce the value.
+               # If memb.exp == 1.05, it takes really long to compute.
+               # (I didn't see it finish)
+               memb.exp = 1.05,
                ...
              )
              cluster <- clusterObj[[ind]]$clustering
            },
            model = {
+             # OK
              clusterObj[[ind]] <- mclust::Mclust(mat,nc, ...)
              cluster <- clusterObj[[ind]]$classification
            },
            som = {
+             # OK
              clusterObj[[ind]] <- kohonen::som(mat, grid=somgrid(1,nc), ...)
              cluster <- clusterObj[[ind]]$unit.classif
            },

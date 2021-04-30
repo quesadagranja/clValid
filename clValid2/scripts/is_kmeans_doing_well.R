@@ -1,4 +1,7 @@
 library(clValid2)
+library(mclust)
+library(kohonen)
+
 # FILE TO CHECK THAT k-MEANS IS PERFORMING OK
 feats_dir  <- "G:/Mi unidad/WHY/Features/"
 out_dir    <- "G:/Mi unidad/WHY/Analyses/clValid/"
@@ -141,10 +144,10 @@ set.seed(seed_value)
 #   diss = F
 # )
 
-result.fanny <- clValid2::clValid(
+result.clara <- clValid2::clValid(
   obj = feats,
   nClust = 24,
-  clMethods = "fanny",
+  clMethods = "clara",
   validation = valid,
   maxitems = nrow(feats) + 1
 )
