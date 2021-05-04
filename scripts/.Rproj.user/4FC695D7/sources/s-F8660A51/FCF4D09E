@@ -3,13 +3,16 @@
     "path": "G:/Mi unidad/WHY/Github/clValid2/scripts/build-package.R",
     "project_path": "build-package.R",
     "type": "r_source",
-    "hash": "2938936655",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1620121469255.0,
     "source_on_save": false,
     "relative_order": 1,
-    "properties": {},
+    "properties": {
+        "cursorPosition": "15,0",
+        "scrollLine": "0"
+    },
     "folds": "",
     "lastKnownWriteTime": 1620118099,
     "encoding": "UTF-8",
