@@ -88,6 +88,7 @@ vClusters <- function(mat,clMethod,nClust,nclustMax, validation,
                # If memb.exp == 1.05, it takes really long to compute.
                # (I didn't see it finish)
                memb.exp = 1.05,
+               maxit    = 2000, # it was 500
                ...
              )
              cluster <- clusterObj[[ind]]$clustering
